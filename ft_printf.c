@@ -6,32 +6,28 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:55:55 by vgroux            #+#    #+#             */
-/*   Updated: 2022/10/18 20:50:44 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/10/19 23:14:10 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_choose_conv(const char *format, va_list ap, int *len)
+int	ft_choose_conv(const char *format, va_list ap)
 {
-	char	*s;
+	int	len;
 
+	len = 0;
 	if (format == '%')
-	{
-		len++;
-		ft_putchar_fd('%', 1);
-	}
+		len = ft_putchar_fd('%', 1);
 	else if (format == 'c')
-	{
-		len++;
-		ft_putchar_fd(va_arg(ap, char), 1);
-	}
+		len = ft_putchar_fd(va_arg(ap, char), 1);
 	else if (format == 's')
-	{
-		s = va_arg(ap, char *);
-		len += ft_strlen(s);
-		ft_putstr_fd(s, 1);
-	}
+		len = ft_putstr_fd(va_arg(ap, char *), 1);
+	else if (format == 'x')
+		len = ft_putnbr_base_fd(va_arg(ap, int), "0123456789abcdef");
+	else if (format == 'X')
+		len = ft_putnbr_base_fd(va_arg(ap, int), "0123456789ABCDEF");
+	return (len);
 }
 
 int	ft_printf(const char *format, ...)
@@ -45,15 +41,15 @@ int	ft_printf(const char *format, ...)
 	len = 0;
 	while (format != '\0')
 	{
-		if (format == '%')		// Conversion
+		if (format == '%')
 		{
 			format++;
-			ft_choose_conv(format, ap, &len);
+			len += ft_choose_conv(format, ap, &len);
 		}
 		else
-			ft_putchar_fd(format, 1);
+			len += ft_putchar_fd(format, 1);
 		format++;
 	}
 	va_end(ap);
-	return (0); // RETOURNE LE NOMBRE DE BYTES ECRIT (SANS LE '\0')
+	return (len);
 }
