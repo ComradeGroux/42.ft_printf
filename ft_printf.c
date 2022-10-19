@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:55:55 by vgroux            #+#    #+#             */
-/*   Updated: 2022/10/19 23:14:10 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/10/19 23:24:49 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,18 @@ int	ft_choose_conv(const char *format, va_list ap)
 		len = ft_putchar_fd(va_arg(ap, char), 1);
 	else if (format == 's')
 		len = ft_putstr_fd(va_arg(ap, char *), 1);
+	else if (format == 'i')
+		len = ft_putnbr_base_fd(va_arg(ap, int), "0123456789", 1);
 	else if (format == 'x')
-		len = ft_putnbr_base_fd(va_arg(ap, int), "0123456789abcdef");
+		len = ft_putnbr_base_fd(va_arg(ap, int), "0123456789abcdef", 1);
 	else if (format == 'X')
-		len = ft_putnbr_base_fd(va_arg(ap, int), "0123456789ABCDEF");
+		len = ft_putnbr_base_fd(va_arg(ap, int), "0123456789ABCDEF", 1);
+	else if (format == 'p')
+
+	else if (format == 'd')
+
+	else if (format == 'u')
+
 	return (len);
 }
 
@@ -39,7 +47,7 @@ int	ft_printf(const char *format, ...)
 	va_start(ap, format);
 	i = 0;
 	len = 0;
-	while (format != '\0')
+	while (format)
 	{
 		if (format == '%')
 		{
