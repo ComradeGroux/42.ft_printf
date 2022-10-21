@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 15:48:16 by vgroux            #+#    #+#             */
-/*   Updated: 2022/10/20 16:54:18 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/10/21 14:11:33 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,16 @@ int	ft_printf_str(char *str)
 
 	i = 0;
 	len = 0;
-	while (str[i])
+	if (str != NULL)
 	{
-		len += ft_printf_char(str[i]);
-		i++;
+		while (str[i] != '\0')
+		{
+			len += ft_printf_char(str[i]);
+			i++;
+		}
 	}
+	else
+		len = ft_printf_str("(null)");
 	return (len);
 }
 
@@ -65,7 +70,7 @@ int	ft_printf_nbr_base(long long num, char *base)
 	return (len);
 }
 
-int	ft_printf_ptr(unsigned long long ptr)
+int	ft_printf_ptr(unsigned long ptr)
 {
 	int	len;
 

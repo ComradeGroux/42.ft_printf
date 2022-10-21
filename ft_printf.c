@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:55:55 by vgroux            #+#    #+#             */
-/*   Updated: 2022/10/20 16:55:23 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/10/21 14:21:29 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ int	ft_printf_conv(char format, va_list ap)
 		len = ft_printf_char(va_arg(ap, int));
 	else if (format == 's')
 		len = ft_printf_str(va_arg(ap, char *));
-	else if (format == 'i' && format == 'd')
-		len = ft_printf_nbr_base(va_arg(ap, long long), "0123456789");
+	else if (format == 'i' || format == 'd')
+		len = ft_printf_nbr_base(va_arg(ap, int), "0123456789");
 	else if (format == 'x')
 		len = ft_printf_nbr_base(va_arg(ap, unsigned int), "0123456789abcdef");
 	else if (format == 'X')
 		len = ft_printf_nbr_base(va_arg(ap, unsigned int), "0123456789ABCDEF");
 	else if (format == 'p')
-		len = ft_printf_ptr(va_arg(ap, unsigned long long));
+		len = ft_printf_ptr(va_arg(ap, unsigned long));
 	else if (format == 'u')
 		len = ft_printf_nbr_base(va_arg(ap, unsigned long), "0123456789");
 	return (len);
