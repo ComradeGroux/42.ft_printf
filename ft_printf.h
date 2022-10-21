@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:42:03 by vgroux            #+#    #+#             */
-/*   Updated: 2022/10/21 13:58:31 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/10/21 14:44:30 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_printf_conv(char format, va_list ap);
 int	ft_printf_char(char c);
 int	ft_printf_str(char *str);
 int	ft_printf_nbr_base(long long num, char *base);
-int	ft_printf_ptr(unsigned long ptr);
+int	ft_printf_ptr(uintptr_t ptr);
 int	ft_printf(const char *format, ...);
 
 #endif
