@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 15:48:16 by vgroux            #+#    #+#             */
-/*   Updated: 2022/10/21 15:07:40 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/10/21 15:08:30 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,7 @@ int	ft_printf_ptr(uintptr_t ptr)
 	int	len;
 
 	len = ft_printf_str("0x");
-	if (ptr == 0)
-		len += ft_printf_nbr_base(ptr, "0123456789abcdef");
+	len += ft_printf_nbr_base(ptr, "0123456789abcdef");
 	return (len);
 }
 
