@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 15:49:43 by vgroux            #+#    #+#             */
-/*   Updated: 2022/10/22 16:02:24 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/10/22 16:33:27 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ char	*ft_uitoa(unsigned int n)
 		str[i] = 0;
 	while (i >= 0)
 	{
-		str[i--] = (num % 10) + '0';
-		num /= 10;
+		str[i--] = (n % 10) + '0';
+		n /= 10;
 	}
 	return (str);
 }
