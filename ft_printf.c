@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:55:55 by vgroux            #+#    #+#             */
-/*   Updated: 2022/10/21 16:07:06 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/10/22 16:28:50 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	ft_printf_conv(char format, va_list ap)
 {
-	int	len;
+	int		len;
+	char	*str;
 
 	len = 0;
 	if (format == '%')
@@ -32,7 +33,7 @@ int	ft_printf_conv(char format, va_list ap)
 	else if (format == 'p')
 		len = ft_printf_ptr(va_arg(ap, unsigned long));
 	else if (format == 'u')
-		len = ft_printf_nbr_base(va_arg(ap, unsigned long), "0123456789");
+		len += ft_printf_ui(va_arg(ap, unsigned int));
 	return (len);
 }
 
