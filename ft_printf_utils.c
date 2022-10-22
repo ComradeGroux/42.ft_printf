@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 15:48:16 by vgroux            #+#    #+#             */
-/*   Updated: 2022/10/21 15:13:50 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/10/21 16:07:24 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	ft_printf_nbr_base(long long num, char *base)
 	return (len);
 }
 
-int	ft_printf_ptr(uintptr_t ptr)
+int	ft_printf_ptr(unsigned long ptr)
 {
 	int	len;
 
