@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 15:48:16 by vgroux            #+#    #+#             */
-/*   Updated: 2022/10/22 16:57:20 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/10/24 12:00:51 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_strlen(const char *s)
 
 int	ft_printf_char(char c)
 {
-	return(write(1, &c, 1));
+	return (write(1, &c, 1));
 }
 
 int	ft_printf_str(char *str)
