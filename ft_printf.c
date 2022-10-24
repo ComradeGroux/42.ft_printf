@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:55:55 by vgroux            #+#    #+#             */
-/*   Updated: 2022/10/24 12:45:02 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/10/24 13:02:43 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_printf_conv(char format, va_list ap)
 	else if (format == 'X')
 		return (ft_printf_n_base(va_arg(ap, unsigned int), "0123456789ABCDEF"));
 	else if (format == 'p')
-		return (ft_printf_ptr(va_arg(ap, unsigned long)));
+		return (ft_printf_ptr((unsigned long)va_arg(ap, void *)));
 	else if (format == 'u')
 		return (ft_printf_ui(va_arg(ap, unsigned int)));
 	return (0);
