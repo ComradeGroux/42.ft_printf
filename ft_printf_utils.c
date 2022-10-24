@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 15:48:16 by vgroux            #+#    #+#             */
-/*   Updated: 2022/10/24 12:00:51 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/10/24 12:45:23 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ft_printf_str(char *str)
 	return (len);
 }
 
-int	ft_printf_nbr_base(long long num, char *base)
+int	ft_printf_n_base(long long num, char *base)
 {
 	int		baselen;
 	int		len;
@@ -57,12 +57,12 @@ int	ft_printf_nbr_base(long long num, char *base)
 	if (num < 0)
 	{
 		len += ft_printf_char('-');
-		len += ft_printf_nbr_base(num * -1, base);
+		len += ft_printf_n_base(num * -1, base);
 	}
 	else if (num >= baselen)
 	{
-		len += ft_printf_nbr_base(num / baselen, base);
-		len += ft_printf_nbr_base(num % baselen, base);
+		len += ft_printf_n_base(num / baselen, base);
+		len += ft_printf_n_base(num % baselen, base);
 	}
 	else
 		len += ft_printf_char(base[num]);

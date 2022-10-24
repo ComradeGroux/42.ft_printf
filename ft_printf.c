@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:55:55 by vgroux            #+#    #+#             */
-/*   Updated: 2022/10/22 16:33:50 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/10/24 12:45:02 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,23 @@
 
 int	ft_printf_conv(char format, va_list ap)
 {
-	int		len;
-
-	len = 0;
 	if (format == '%')
-		len = ft_printf_char('%');
+		return (ft_printf_char('%'));
 	else if (format == 'c')
-		len = ft_printf_char(va_arg(ap, int));
+		return (ft_printf_char(va_arg(ap, int)));
 	else if (format == 's')
-		len = ft_printf_str(va_arg(ap, char *));
+		return (ft_printf_str(va_arg(ap, char *)));
 	else if (format == 'i' || format == 'd')
-		len = ft_printf_nbr_base(va_arg(ap, int), "0123456789");
+		return (ft_printf_n_base(va_arg(ap, int), "0123456789"));
 	else if (format == 'x')
-		len = ft_printf_nbr_base(va_arg(ap, unsigned int), "0123456789abcdef");
+		return (ft_printf_n_base(va_arg(ap, unsigned int), "0123456789abcdef"));
 	else if (format == 'X')
-		len = ft_printf_nbr_base(va_arg(ap, unsigned int), "0123456789ABCDEF");
+		return (ft_printf_n_base(va_arg(ap, unsigned int), "0123456789ABCDEF"));
 	else if (format == 'p')
-		len = ft_printf_ptr(va_arg(ap, unsigned long));
+		return (ft_printf_ptr(va_arg(ap, unsigned long)));
 	else if (format == 'u')
-		len += ft_printf_ui(va_arg(ap, unsigned int));
-	return (len);
+		return (ft_printf_ui(va_arg(ap, unsigned int)));
+	return (0);
 }
 
 int	ft_printf(const char *format, ...)
