@@ -6,7 +6,7 @@
 #    By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/30 14:09:53 by vgroux            #+#    #+#              #
-#    Updated: 2022/10/24 14:01:54 by vgroux           ###   ########.fr        #
+#    Updated: 2022/10/25 15:54:36 by vgroux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC =         gcc
 CFLAGS =     -Wall -Wextra -Werror
 RM =         rm -f
 
-SRCS =		ft_ulltoa.c ft_uitoa.c ft_printf_ptr.c ft_printf_utils.c ft_printf.c
+SRCS =		ft_ulltoa.c ft_printf_ptr.c ft_printf_utils.c ft_printf.c
 OBJS =		${SRCS:.c=.o}
 
 NAME =     libftprintf.a

@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:42:03 by vgroux            #+#    #+#             */
-/*   Updated: 2022/10/24 14:03:42 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/10/25 15:54:41 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdarg.h>
 
 int		ft_printf_ui(unsigned int n);
-char	*ft_uitoa(unsigned int n);
 int		ft_printf_conv(char format, va_list ap);
 int		ft_printf_char(char c);
 int		ft_printf_str(char *str);

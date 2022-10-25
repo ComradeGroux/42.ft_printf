@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 15:48:16 by vgroux            #+#    #+#             */
-/*   Updated: 2022/10/25 12:42:08 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/10/25 15:50:53 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	ft_printf_ui(unsigned int n)
 	char	*str;
 	int		len;
 
-	str = ft_uitoa(n);
+	str = ft_ulltoa_base(n, "0123456789");
 	if (!str)
 		return (0);
 	len = ft_printf_str(str);
